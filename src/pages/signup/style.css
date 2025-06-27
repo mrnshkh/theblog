@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  gap: 225px;
+}
+
+.signup-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 225px;
+}
+
+.signup-box {
+  background: white;
+  padding: 50px 40px;
+  border-radius: 20px;
+  width: 420px;
+}
+
+.signup-title {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.signup-subtitle {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #666;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.form-input:hover {
+  border-color: #c7d0d9;
+  background: #fff;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4facfe;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+}
+
+.signup-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #68944b 0%, #3c6831 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 30px;
+  color: #666;
+  font-size: 14px;
+}
+
+.signup-link a {
+  color: #4facfe;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.signup-image-side {
+  width: 50%;
+  height: 100vh;
+}
+
+.signup-image {
+  width: 781.5px;
+  height: 1042px;
+  border-top-left-radius: 45px;
+  border-bottom-left-radius: 45px;
+  object-fit: cover;
+}

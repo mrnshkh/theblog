@@ -1,0 +1,26 @@
+the blog
+        / 
+        nodemodules
+        public
+        src
+           /
+           components
+                     /
+                     card.js
+                     headers.js
+            pages
+            /
+            home
+            /
+            index.html
+            style.css
+            script.js
+
+            router/
+            router.js
+            routes.js
+        
+ index.html
+ main.js    
+ p.json 
+ и тд                

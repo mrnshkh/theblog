@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="signup-page">
+    <div class="signup-container">
+      <div class="signup-box">
+        <h2 class="signup-title">Create an account</h2>
+        <p class="signup-subtitle">Please enter your details to sign up</p>
+
+        <form name="auth">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" />
+          </div>
+
+          <button type="submit" class="signup-button">Sign up</button>
+        </form>
+
+        <div class="signup-link">
+          Already have an account? <a href="/src/pages/login/">Sign in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="signup-image-side">
+      <img class="signup-image" src="/public/images/c230ffba520fab60716f712257d7f6a7fc48a42f.jpg" alt="Signup Image" />
+    </div>
+  </div>
+
+  <script type="module" src="./script.js"></script>
+</body>
+
+</html>
