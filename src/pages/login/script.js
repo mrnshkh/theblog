@@ -1,18 +1,23 @@
 import { redirect } from "../../utils/helpers.js";
+import axios from "axios";
 
+const form = document.forms.login;
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const data = {};
+  formData.forEach((val, key) => data[key] = val);
 
-
-let form = document.forms.login;
-
-form.onsubmit = (e) => {
-    e.preventDefault();
-
-    let formData = new FormData(form);
-    let user = {};
-
-    formData.forEach((value, key) => {
-        user[key] = value;
-    });
-
-    console.log(user);
-};
+  try {
+    const res = await axios.post(
+      "https://blog-n7ue.onrender.com/login",   
+      data
+    );
+    const token = res.data.token;              
+    localStorage.setItem("token", token);
+    redirect("/")
+  } catch (err) {
+    console.error(err)
+    alert("Ошибка: проверь логин/пароль или поля формы")
+  }
+})

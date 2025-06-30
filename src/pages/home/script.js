@@ -2,6 +2,8 @@ import { Header } from '../../components/header.js'
 import { card } from '../../components/card.js' 
 import { render}  from '../../utils/render.js' 
 import { data } from '../../utils/db.js' 
+import { Footer } from '../../components/footers.js'
+Footer()
 import AOS from 'aos' 
 Header()
 AOS.init() 
@@ -35,3 +37,4 @@ whiteBtn.onclick = () => {
     nav.classList.toggle('open') 
     
   }) 
+  

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile — The Blog</title>
+  <link rel="stylesheet" href="./src/components/header.css">
+  <link rel="stylesheet" href="./src/pages/profile/style.css">
+</head>
+<body>
+  <!-- header добавится скриптом -->
+  <main class="profile-container">
+    <div class="profile-card">
+      <h1 id="name">–</h1>
+      <p><strong>Email:</strong> <span id="email">–</span></p>
+      <p><strong>Token:</strong> <span id="token">–</span></p>
+    </div>
+  </main>
+
+  <script type="module">
+    import { renderHeader } from "../components/header.js";
+    import axios from "axios";
+    import { getToken, isLoggedIn, logout } from "../../utils/auth.js";
+
+    renderHeader();
+
+    if (!isLoggedIn()) {
+      window.location.href = "/login.html";
+    } else {
+      const token = getToken();
+      axios.get("https://blog-n7ue.onrender.com/users/me", {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(res => {
+        document.getElementById("name").textContent  = res.data.name;
+        document.getElementById("email").textContent = res.data.email;
+        document.getElementById("token").textContent = token;
+      })
+      .catch(() => logout());
+    }
+  </script>
+</body>
+</html>

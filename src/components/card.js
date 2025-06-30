@@ -30,3 +30,4 @@ export function card(){
     card.append(img, content);
     return card;
 }
+                         
