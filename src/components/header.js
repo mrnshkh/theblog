@@ -1,13 +1,11 @@
-const burger = document.getElementById("burger");
-const nav = document.getElementById("nav");
-import { isLoggedIn } from "../../utils/auth.js";
-import { logout } from "../utils/auth.js";
-
 export function Header() {
-  const header = document.querySelector("header");
-  header.innerHTML = `
+  let Header = document.querySelector("header");
+  if (!Header) return; // если header нет — выходим из функции
+
+  const isLoggedIn = !!localStorage.getItem("token");
+
+  Header.innerHTML = `
     <div class="header-left">
-      <a href="/" class="logo">The Blog</a>
     </div>
 
     <div class="burger" id="burger">
@@ -17,13 +15,14 @@ export function Header() {
     </div>
 
     <nav class="nav-links" id="nav">
-      <a href="/">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+      <a href="#">Newsletter</a>
       ${
-        isLoggedIn()
-          ? `<a href="/profile.html">Profile</a>
-             <button id="btn-logout" class="nav-btn">Logout</button>`
-          : `<a href="/login.html">Login</a>
-             <a href="/signup.html">Sign Up</a>`
+        isLoggedIn
+          ? `<a href="/profile/">Profile</a>`
+          : `<a href="/signup/">Signup</a>`
       }
     </nav>
 
@@ -32,17 +31,4 @@ export function Header() {
       <button class="white" aria-label="Светлая тема">☀️</button>
     </div>
   `;
-
- 
-  if (isLoggedIn()) {
-    document
-      .getElementById("btn-logout")
-      .addEventListener("click", logout);
-  }
-
-
-  burger.addEventListener("click", () => {
-    burger.classList.toggle("active");
-    nav.classList.toggle("active");
-  });
 }

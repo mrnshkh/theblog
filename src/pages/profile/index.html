@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Profile — The Blog</title>
-  <link rel="stylesheet" href="./src/components/header.css">
-  <link rel="stylesheet" href="./src/pages/profile/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studentwepro</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <!-- header добавится скриптом -->
-  <main class="profile-container">
-    <div class="profile-card">
-      <h1 id="name">–</h1>
-      <p><strong>Email:</strong> <span id="email">–</span></p>
-      <p><strong>Token:</strong> <span id="token">–</span></p>
-    </div>
-  </main>
 
-  <script type="module">
-    import { renderHeader } from "../components/header.js";
-    import axios from "axios";
-    import { getToken, isLoggedIn, logout } from "../../utils/auth.js";
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">Studentwepro</a>
+                <ul class="nav-menu">
+                    <li><a href="/home" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    renderHeader();
+    <main class="main-content">
+        <div class="container">
+            <div class="profile-section">
+                <div class="content-area">
+                    <div class="no-content">
+                        Studentwepro hasn't written any stories yet.
+                    </div>
+                </div>
+<form class="inputs">
+  <label for="nameInput">Name:</label>
+  <input type="text" id="nameInput" placeholder="Your name" readonly>
 
-    if (!isLoggedIn()) {
-      window.location.href = "/login.html";
-    } else {
-      const token = getToken();
-      axios.get("https://blog-n7ue.onrender.com/users/me", {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      .then(res => {
-        document.getElementById("name").textContent  = res.data.name;
-        document.getElementById("email").textContent = res.data.email;
-        document.getElementById("token").textContent = token;
-      })
-      .catch(() => logout());
-    }
-  </script>
+  <label for="emailInput">Email:</label>
+  <input type="email" id="emailInput" placeholder="Your email" readonly>
+
+  <button id="logoutBtn" class="btn" type="button">Выйти</button>
+  <a class="home" href="Home"></a>
+</form>
+
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        S
+                    </div>
+                    <div class="profile-name" id="profileName">Studentwepro</div>
+                    <div class="profile-actions">
+                        <button class="btn btn-follow">Follow</button>
+                        <button class="btn btn-message">
+                            <div class="message-icon"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </main>
+    
+    <script type="module" src="./script.js"></script>
 </body>
 </html>

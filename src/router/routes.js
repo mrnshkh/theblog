@@ -31,6 +31,28 @@ export const routes = [
     loadStyles: () =>
       import("../pages/login/style.css", { assert: { type: "css" } }),
     loadScripts: () => import("../pages/login/script.js"),
+  },
+   {
+    path: /^\/(profile)?\/?$/,
+    view: async (app) => {
+      const response = await fetch("/src/pages/profile/index.html");
+      const html = await response.text();
+      app.innerHTML = html;
+    },
+    loadStyles: () =>
+      import("../pages/profile/style.css", { assert: { type: "css" } }),
+    loadScripts: () => import("../pages/profile/script.js"),
+  },
+  {
+    path: /^\/(404)?\/?$/,
+    view: async (app) => {
+      const response = await fetch("/src/pages/404/index.html");
+      const html = await response.text();
+      app.innerHTML = html;
+    },
+    loadStyles: () =>
+      import("../pages/404/style.css", { assert: { type: "css" } }),
+    loadScripts: () => import("../pages/404/script.js"),
   }
 
 ];

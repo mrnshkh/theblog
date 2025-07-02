@@ -1,23 +1,25 @@
-import { redirect } from "../../utils/helpers.js";
-import axios from "axios";
+import axios from "https://cdn.skypack.dev/axios";
 
-const form = document.forms.auth;
-form.addEventListener("submit", async (e) => {
+let form = document.forms.auth;
+
+form.onsubmit = async (e) => {
   e.preventDefault();
-  const formData = new FormData(form);
-  const data = {};
-  formData.forEach((val, key) => data[key] = val);
+
+  let data = {};
+  new FormData(form).forEach((v, k) => data[k] = v);
 
   try {
-    const res = await axios.post(
-      "https://blog-n7ue.onrender.com/login",  
-      data
-    );
-    const token = res.data.token;              
-    localStorage.setItem("token", token);      
-    redirect("/");                             
+    let res = await axios.post("https://blog-n7ue.onrender.com/users", data);
+    let token = res.data.accessToken;
+
+    if (token) {
+      localStorage.setItem("token", token);
+      localStorage.setItem("fullName", data.fullName);
+      localStorage.setItem("email", data.email);
+      location.href = "/login/";
+    }
   } catch (err) {
-    console.error(err);
-    alert("Ошибка: проверь логин/пароль или поля формы");
+    console.error("Ошибка регистрации:", err.response?.data || err);
+    alert(err.response?.data?.message || "Ошибка регистрации");
   }
-});
+};
